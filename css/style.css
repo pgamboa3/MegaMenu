@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f0f0f0 url(https://images.pexels.com/photos/3112004/pexels-photo-3112004.jpeg?_gl=1*pmw1pb*_ga*MTE2OTkyMzYwNC4xNzc1NDcxNDI3*_ga_8JE65Q40S6*czE3NzU0NzE0MjckbzEkZzAkdDE3NzU0NzE0MjckajYwJGwwJGgw) no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1, .h1{
+  text-align: center;
+  font-size: 5em;
+  color: #fff;
+}
+
+.navbar a, p
+{
+  color: #fff;
+}
+
+.navbar a:hover, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show
+{
+  color: yellow;   /* same as hover */
+    background-color: transparent;
+}
+
+/* Mega dropdown container */
+.navbar .mega-dropdown {
+  position: static;
+  width: 100%;
+}
+
+/* Force mega dropdown to match navbar width */
+.navbar .dropdown-menu.mega-dropdown-menu {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+#site_header .header-wrapper
+{
+    background-color: rgb(132 27 28);
+    min-height: 80px;
+    /* padding: 20px 0; */
+}
+
+
+.mega-dropdown-menu > li {
+  list-style: none;
+}
+
+/* Column lists */
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  padding: 6px 20px;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #666;
+  text-decoration: none;
+}
+
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  color: #444;
+  background-color: #f5f5f5;
+}
+
+/* Headers inside mega menu */
+.mega-dropdown-menu .dropdown-header {
+  color: red; /* Bootstrap primary color */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+/* Form inside mega menu */
+.mega-dropdown-menu form {
+  margin: 10px 20px;
+}
+
+.mega-dropdown-menu .form-group {
+  margin-bottom: 10px;
+}
+
+/* Carousel images inside mega menu */
+.mega-dropdown-menu .carousel-item img {
+  border-radius: 4px;
+}
+
+.navbar-toggler {
+    color: #fff;
+    font-size: 1.8rem;
+    border: none;
+    cursor: pointer;
+}
+.navbar-toggler:hover
+{
+  color: #cacaca;
+}
+
+
+/* Hidden state */
+/* Base mega dropdown menu setup */
+
+
+/* Show on hover (desktop only) */
+@media (min-width: 992px) 
+{
+  .mega-dropdown-menu
+  {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .navbar .mega-dropdown-menu
+	{
+		right:0;
+		left: 0;
+		width: 100%;
+	}
+
+
+
+  .navbar .nav-link.dropdown-toggle
+  {
+    pointer-events: none;
+  }
+
+  .nav-item.dropdown.mega-dropdown
+  {
+    cursor: pointer;
+  }
+
+  .nav-link::selection
+  {
+    background: transparent; /* no background */
+    color: inherit;          /* keep original text color */
+  }
+
+
+  /* Keep submenu visible on hover or focus */
+  .nav-item.dropdown.mega-dropdown:hover .mega-dropdown-menu,
+  .nav-item.dropdown.mega-dropdown:focus-within .mega-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Keep COLLECTION link highlighted while submenu is active */
+  .nav-item.dropdown.mega-dropdown:hover > .nav-link.dropdown-toggle,
+  .nav-item.dropdown.mega-dropdown:focus-within > .nav-link.dropdown-toggle {
+    color: yellow;   /* same as hover */
+    background-color: transparent;
+  }
+
+}
+
+@media (max-width: 991px)
+{
+  #site_header .header-wrapper > div
+  {
+    padding: 20px 0px;
+  }
+
+  #megaCollapse
+  {
+    overflow: hidden; /* required for slide animation */
+  }
+
+  .mega-dropdown-menu
+  {
+    background: #fff;
+    padding: 1rem;
+  }
+
+  /* Highlight when focused directly */
+  .navbar .nav-link:focus,
+  .navbar .nav-link:hover {
+    color: yellow;
+    background-color: transparent;
+
+  }
+
+  
+
+  /* Keep COLLECTION highlighted while submenu is expanded */
+  #megaCollapse.show ~ .nav-link.dropdown-toggle,
+  .nav-item.dropdown.mega-dropdown:focus-within > .nav-link.dropdown-toggle {
+    color: yellow;
+    background-color: transparent;
+  }
+
+ .navbar .nav-link.submenu-open {
+  color: yellow;
+  background-color: transparent;
+}
+
+
+
+
+}
+
+
+.navbar-nav .nav-item
+{
+  line-height: 64px;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Add vertical separators between columns */
+.navbar .dropdown-menu.mega-dropdown-menu > li {
+  border-right: 1px solid #ddd; /* light gray separator */
+  padding: 0 10px; /* spacing inside each column */
+}
+
+/* Remove the last column’s border */
+.navbar .dropdown-menu.mega-dropdown-menu > li:last-child {
+  border-right: none;
+}
+
+
+header .topbar {
+    background-color: rgb(187, 48, 51);
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+
+
+
+
+
