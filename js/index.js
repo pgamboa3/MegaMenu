@@ -42,28 +42,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  megaCollapse.addEventListener("shown.bs.collapse", updateHighlight);
-  megaCollapse.addEventListener("hidden.bs.collapse", updateHighlight);
-  document.addEventListener("focusin", updateHighlight);
-
-  // Reset only when crossing breakpoints
-  let lastMode = window.innerWidth >= 992 ? "desktop" : "mobile";
-
-  function resetStates() {
-    collectionLink.classList.remove("submenu-open");
-    if (megaCollapse.classList.contains("show")) {
-      const bsCollapse = bootstrap.Collapse.getInstance(megaCollapse);
-      if (bsCollapse) bsCollapse.hide();
-    }
-    document.activeElement.blur();
-  }
-
-  window.addEventListener("resize", function () {
-    const currentMode = window.innerWidth >= 992 ? "desktop" : "mobile";
-    if (currentMode !== lastMode) {
-      resetStates();
-      lastMode = currentMode;
-    }
-  });
-});
 
