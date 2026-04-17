@@ -69,24 +69,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-function moveNavExtras() {
-  const extras = document.getElementById('navExtras');
-  const desktopContainer = document.querySelector('.header-search .container');
-  const mobileContainer = document.querySelector('.header-wrapper .navbar .container-fluid');
+let wrapper; // keep reference globally
 
-  if (window.innerWidth < 992) {
-    // Move to mobile navbar
-    if (!mobileContainer.contains(extras)) {
-      mobileContainer.insertBefore(extras, mobileContainer.querySelector('.collapse'));
+function adjustNav() {
+  const toggler = document.querySelector('.navbar-toggler');
+  const extras = document.getElementById('navExtras');
+  const mobile = document.querySelector('.header-wrapper .navbar .container-fluid');
+  const desktop = document.querySelector('.header-search .container');
+
+  if (innerWidth < 992) {
+    if (!wrapper) {
+      wrapper = document.createElement('div');
+      wrapper.style.display = 'flex';
+      wrapper.style.flexGrow = 1;
+      mobile.insertBefore(wrapper, mobile.querySelector('.navbar-collapse'));
     }
+    wrapper.append(toggler, extras);
   } else {
-    // Move back to desktop header-search
-    if (!desktopContainer.contains(extras)) {
-      desktopContainer.appendChild(extras);
+    if (wrapper) {
+      wrapper.remove();
+      wrapper = null; // clear reference
     }
+    desktop.appendChild(extras);
+    mobile.insertBefore(toggler, mobile.querySelector('.navbar-collapse'));
   }
 }
 
-// Run on load and resize
-window.addEventListener('load', moveNavExtras);
-window.addEventListener('resize', moveNavExtras);
+['load','resize'].forEach(e => addEventListener(e, adjustNav));
+
+
