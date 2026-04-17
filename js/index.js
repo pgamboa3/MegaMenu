@@ -66,3 +66,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
+
+function moveNavExtras() {
+  const extras = document.getElementById('navExtras');
+  const desktopContainer = document.querySelector('.header-search .container');
+  const mobileContainer = document.querySelector('.header-wrapper .navbar .container-fluid');
+
+  if (window.innerWidth < 992) {
+    // Move to mobile navbar
+    if (!mobileContainer.contains(extras)) {
+      mobileContainer.insertBefore(extras, mobileContainer.querySelector('.collapse'));
+    }
+  } else {
+    // Move back to desktop header-search
+    if (!desktopContainer.contains(extras)) {
+      desktopContainer.appendChild(extras);
+    }
+  }
+}
+
+// Run on load and resize
+window.addEventListener('load', moveNavExtras);
+window.addEventListener('resize', moveNavExtras);
