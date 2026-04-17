@@ -236,12 +236,6 @@ h4
     color: #007056;
     background-color: transparent;
   }
-
-
-.navbar .container-fluid {
-  flex-wrap: nowrap; /* keeps items on one line */
-}
-  
 }
 
 .navbar-nav .nav-item
