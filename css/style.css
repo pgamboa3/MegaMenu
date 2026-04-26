@@ -67,9 +67,9 @@ h4
 
 .mega-dropdown-menu > li > ul > li > a {
   display: block;
-  padding: 6px 20px;
+  /* padding: 6px 0px; */
   font-weight: normal;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   color: #666;
   text-decoration: none;
 }
@@ -85,7 +85,7 @@ h4
   color: #007056; /* Bootstrap primary color */
   font-size: 18px;
   font-weight: bold;
-  padding: 10px 20px;
+
 }
 
 /* Form inside mega menu */
@@ -203,6 +203,11 @@ h4
     padding: 20px 0px;
   }
 
+  .navbar-collapse
+  {
+    margin-top: 10px;
+  }
+
 
   #megaCollapse
   {
@@ -211,16 +216,17 @@ h4
 
   .mega-dropdown-menu
   {
-    background: #fff;
-    padding: 1rem;
+    /* background: #fff; */
   }
 
   /* Highlight when focused directly */
   .navbar .nav-link:focus,
-  .navbar .nav-link:hover
+  .navbar .nav-link:hover,
+  .navbar .nav-link.active,
+  .navbar .nav-link.active:hover
   {
     color: #007056;
-    background-color: transparent;
+    background-color: #004635;
   }
 
   /* Keep COLLECTION highlighted while submenu is expanded */
@@ -228,13 +234,30 @@ h4
   .nav-item.dropdown.mega-dropdown:focus-within > .nav-link.dropdown-toggle
   {
     color: #007056;
-    background-color: transparent;
+    background-color: #004635;
   }
 
-  .navbar .nav-link.submenu-open, .topbar i
+  .navbar .nav-link.submenu-open, .navbar .nav-link.collapsed, .navbar .nav-link, .topbar i
   {
     color: #007056;
-    background-color: transparent;
+    background-color: #00916f;
+    border-radius: 10px;
+  }
+
+  .navbar-nav .nav-item
+  {
+    border-radius: 10px;
+    border: 1px solid #00c99c;
+  }
+
+  .navbar-nav .nav-item.dropdown.mega-dropdown
+  {
+    background-color: #fff;
+  }
+
+  .nav-link, .mega-dropdown-menu ul li
+  {
+    padding: 0rem 1rem;
   }
 }
 
