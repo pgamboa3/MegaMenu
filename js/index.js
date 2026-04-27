@@ -1,74 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const link = document.getElementById("collectionLink");
-  const menu = document.getElementById("megaCollapse");
-  const attrs = {
-    "data-bs-toggle": "collapse",
-    "data-bs-target": "#megaCollapse",
-    "aria-controls": "megaCollapse"
-  };
+  const dropdowns = document.querySelectorAll(".nav-item.dropdown.mega-dropdown");
 
-  function setBehavior() {
-    const isMobile = window.innerWidth < 992;
+  dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector(".nav-link.dropdown-toggle");
+    const menu = dropdown.querySelector(".collapse");
 
-    Object.entries(attrs).forEach(([key, value]) => {
+    // Build attributes dynamically based on menu ID
+    const attrs = {
+      "data-bs-toggle": "collapse",
+      "data-bs-target": `#${menu.id}`,
+      "aria-controls": menu.id
+    };
+
+    function setBehavior() {
+      const isMobile = window.innerWidth < 992;
+
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (isMobile) {
+          link.setAttribute(key, value);
+        } else {
+          link.removeAttribute(key);
+        }
+      });
+
       if (isMobile) {
-        link.setAttribute(key, value);
+        menu.classList.add("collapse");
       } else {
-        link.removeAttribute(key);
+        menu.classList.remove("collapse", "show");
       }
+    }
+
+    // Highlight stays until submenu is closed
+    function updateHighlight() {
+      if (menu.classList.contains("show")) {
+        link.classList.add("nav-active");
+      } else {
+        link.classList.remove("nav-active");
+      }
+    }
+
+    menu.addEventListener("shown.bs.collapse", updateHighlight);
+    menu.addEventListener("hidden.bs.collapse", updateHighlight);
+
+    // Reset only when crossing breakpoints
+    let lastMode = window.innerWidth >= 992 ? "desktop" : "mobile";
+
+    function resetStates() {
+      link.classList.remove("nav-active");
+      if (menu.classList.contains("show")) {
+        const bsCollapse = bootstrap.Collapse.getInstance(menu);
+        if (bsCollapse) bsCollapse.hide();
+      }
+      document.activeElement.blur();
+    }
+
+    window.addEventListener("resize", function () {
+      const currentMode = window.innerWidth >= 992 ? "desktop" : "mobile";
+      if (currentMode !== lastMode) {
+        resetStates();
+        lastMode = currentMode;
+      }
+      setBehavior();
     });
 
-    if (isMobile) {
-      menu.classList.add("collapse");
-    } else {
-      menu.classList.remove("collapse", "show");
-    }
-  }
-
-  setBehavior();
-  window.addEventListener("resize", setBehavior);
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const collectionLink = document.getElementById("collectionLink");
-  const megaCollapse = document.getElementById("megaCollapse");
-
-  function updateHighlight() {
-    if (megaCollapse.classList.contains("show")) {
-      collectionLink.classList.add("submenu-open");
-    } else {
-      collectionLink.classList.remove("submenu-open");
-    }
-  }
-
-  megaCollapse.addEventListener("shown.bs.collapse", updateHighlight);
-  megaCollapse.addEventListener("hidden.bs.collapse", updateHighlight);
-  document.addEventListener("focusin", updateHighlight);
-
-  // Reset only when crossing breakpoints
-  let lastMode = window.innerWidth >= 992 ? "desktop" : "mobile";
-
-  function resetStates() {
-    collectionLink.classList.remove("submenu-open");
-    if (megaCollapse.classList.contains("show")) {
-      const bsCollapse = bootstrap.Collapse.getInstance(megaCollapse);
-      if (bsCollapse) bsCollapse.hide();
-    }
-    document.activeElement.blur();
-  }
-
-  window.addEventListener("resize", function () {
-    const currentMode = window.innerWidth >= 992 ? "desktop" : "mobile";
-    if (currentMode !== lastMode) {
-      resetStates();
-      lastMode = currentMode;
-    }
+    // Initial run
+    setBehavior();
   });
 });
 
-
-
+// Navbar extras relocation
 let wrapper; // keep reference globally
 
 function adjustNav() {
@@ -96,5 +96,3 @@ function adjustNav() {
 }
 
 ['load','resize'].forEach(e => addEventListener(e, adjustNav));
-
-

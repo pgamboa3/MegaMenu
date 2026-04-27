@@ -43,7 +43,7 @@
     <div class="header-wrapper d-flex align-items-center">
       <div class="container-fluid container-lg">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
-          <div class="container-fluid px-4">
+          <div class="container-fluid px-3 px-lg-0">
             <button class="fas fa-bars navbar-toggler px-0" 
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -55,85 +55,170 @@
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link active">HOME</a></li>
-                <li class="nav-item dropdown mega-dropdown">
+                <li class="nav-item dropdown mega-dropdown mt-4 mt-lg-0">
                   <a class="nav-link dropdown-toggle"
-                  href="#" 
+                  href="index.html" 
                   data-bs-toggle="collapse"
                   data-bs-target="#megaCollapse"
                   id="collectionLink"          
                   aria-expanded="false"
                   aria-controls="megaCollapse">
-                  COLLECTION
+                  WOMEN
                   </a>
 
                   <!-- Collapse wrapper for mobile -->
                   <div class="collapse" id="megaCollapse">
-                  <!-- Mega Dropdown -->
-                  <ul class="container-fluid p-0 mega-dropdown-menu">
+                    <!-- Mega Dropdown -->
+                    <ul class="container-fluid mega-dropdown-menu">
+              
+                      <!-- Column 1 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Shirts and Tops</li>
+                          <li><a href="#">T-Shirts</a></li>
+                          <li><a href="#">Blouses</a></li>
+                          <li><a href="#">Tank Tops & Camisoles</a></li>
+                          <li><a href="#">Crop Tops</a></li>
+                          <li><a href="#">Sweaters & Cardigans</a></li>
+                          <li><a href="#">Hoodies & Sweatshirts</a></li>
+                          <li><a href="#">Bodysuits</a></li>
+                          <li><a href="#">Tunics</a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 2 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Pants and Bottoms</li>
+                          <li><a href="#">Unique Features</a></li>
+                          <li><a href="#">Image Responsive</a></li>
+                          <li><a href="#">Auto Carousel</a></li>
+                          <li><a href="#">Newsletter Form</a></li>
+                          <li><a href="#">Four columns</a></li>
+                          <li class="dropdown-header">Acessories</li>
+                          <li><a href="#">Good Typography</a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 3 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Shoes</li>
+                          <li><a href="#">Easy to customize</a></li>
+                          <li><a href="#">Bootstrap Icons</a></li>
+                          <li><a href="#">Pull Right Elements</a></li>
+
+                          <li class="dropdown-header">Underwear</li>
+                          <li><a href="#">Coloured Headers</a></li>
+                          <li><a href="#">Primary Buttons & Default</a></li>
+                          <li><a href="#">Calls to action</a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 4 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Accessories</li>
+                          <li><a href="#">Default Navbar</a></li>
+                          <li><a href="#">Lovely Fonts</a></li>
+                          <li><a href="#">Responsive Dropdown</a></li>
+
+                          <li class="dropdown-header">Newsletter</li>
+                          <form class="form">
+                            <div class="mb-3">
+                              <label for="email" class="form-label visually-hidden">Email address</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                          </form>
+                        </ul>
+                      </li>
             
-                  <!-- Column 1 -->
-                    <li>
-                      <ul class="list-unstyled">
-                        <li class="dropdown-header">New in Stores</li>
-                        <li><a href="#">View all Collection <i class="bi bi-chevron-right float-end"></i></a></li>
-                      </ul>
-                    </li>
-
-                    <!-- Column 2 -->
-                    <li>
-                      <ul class="list-unstyled">
-                        <li class="dropdown-header">Dresses</li>
-                        <li><a href="#">Unique Features</a></li>
-                        <li><a href="#">Image Responsive</a></li>
-                        <li><a href="#">Auto Carousel</a></li>
-                        <li><a href="#">Newsletter Form</a></li>
-                        <li><a href="#">Four columns</a></li>
-                        <li class="dropdown-header">Tops</li>
-                        <li><a href="#">Good Typography</a></li>
-                      </ul>
-                    </li>
-
-                    <!-- Column 3 -->
-                    <li>
-                      <ul class="list-unstyled">
-                        <li class="dropdown-header">Jackets</li>
-                        <li><a href="#">Easy to customize</a></li>
-                        <li><a href="#">Bootstrap Icons</a></li>
-                        <li><a href="#">Pull Right Elements</a></li>
-
-                        <li class="dropdown-header">Pants</li>
-                        <li><a href="#">Coloured Headers</a></li>
-                        <li><a href="#">Primary Buttons & Default</a></li>
-                        <li><a href="#">Calls to action</a></li>
-                      </ul>
-                    </li>
-
-                    <!-- Column 4 -->
-                    <li>
-                      <ul class="list-unstyled">
-                        <li class="dropdown-header">Accessories</li>
-                        <li><a href="#">Default Navbar</a></li>
-                        <li><a href="#">Lovely Fonts</a></li>
-                        <li><a href="#">Responsive Dropdown</a></li>
-
-                        <li class="dropdown-header">Newsletter</li>
-                        <form class="form">
-                          <div class="mb-3">
-                            <label for="email" class="form-label visually-hidden">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email">
-                          </div>
-                          <button type="submit" class="btn btn-primary w-100">Sign in</button>
-                        </form>
-                      </ul>
-                    </li>
-          
-                  </ul>
-                </div>
+                    </ul>
+                  </div>
                 </li>
-                <li class="nav-item"><a href="rooms.html" class="nav-link">ROOMS</a></li>
-                <li class="nav-item"><a href="index.html" class="nav-link">LOCATION</a></li>
-                <li class="nav-item"><a href="index.html" class="nav-link">PAGES</a></li>
+
+                <li class="nav-item dropdown mega-dropdown">
+                  <a class="nav-link dropdown-toggle"
+                  href="index.html" 
+                  data-bs-toggle="collapse"
+                  data-bs-target="#megaCollapseMen"
+                  id="collectionLinkMen"          
+                  aria-expanded="false"
+                  aria-controls="megaCollapseMen">
+                  MEN
+                  </a>
+
+                  <!-- Collapse wrapper for mobile -->
+                  <div class="collapse" id="megaCollapseMen">
+                    <!-- Mega Dropdown -->
+                    <ul class="container-fluid mega-dropdown-menu">
+              
+                      <!-- Column 1 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Shirts and Tops</li>
+                          <li><a href="#">View all Collection <i class="bi bi-chevron-right float-end"></i></a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 2 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Pants and Bottoms</li>
+                          <li><a href="#">Unique Features</a></li>
+                          <li><a href="#">Image Responsive</a></li>
+                          <li><a href="#">Auto Carousel</a></li>
+                          <li><a href="#">Newsletter Form</a></li>
+                          <li><a href="#">Four columns</a></li>
+                          <li class="dropdown-header">Acessories</li>
+                          <li><a href="#">Good Typography</a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 3 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Shoes</li>
+                          <li><a href="#">Easy to customize</a></li>
+                          <li><a href="#">Bootstrap Icons</a></li>
+                          <li><a href="#">Pull Right Elements</a></li>
+
+                          <li class="dropdown-header">Underwear</li>
+                          <li><a href="#">Coloured Headers</a></li>
+                          <li><a href="#">Primary Buttons & Default</a></li>
+                          <li><a href="#">Calls to action</a></li>
+                        </ul>
+                      </li>
+
+                      <!-- Column 4 -->
+                      <li>
+                        <ul class="list-unstyled">
+                          <li class="dropdown-header">Accessories</li>
+                          <li><a href="#">Default Navbar</a></li>
+                          <li><a href="#">Lovely Fonts</a></li>
+                          <li><a href="#">Responsive Dropdown</a></li>
+
+                          <li class="dropdown-header">Newsletter</li>
+                          <form class="form">
+                            <div class="mb-3">
+                              <label for="email" class="form-label visually-hidden">Email address</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                          </form>
+                        </ul>
+                      </li>
+            
+                    </ul>
+                  </div>
+                </li>
+                
+                <li class="nav-item"><a href="rooms.html" class="nav-link">NEW ARRIVALS</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">BEST SELLERS</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">TRENDING</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">SALE</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">BRANDS</a></li>
               </ul>
               </div>
             <!-- /.nav-collapse -->
