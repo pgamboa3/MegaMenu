@@ -107,11 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const container = document.getElementById("bannerSlides");
+  const mobileQuery = window.matchMedia("(max-width: 991px)");
 
   function buildCarousel() {
-    const isMobile = window.innerWidth < 991;
     container.innerHTML = "";
-
     slides.forEach((s, i) => {
       if (s.type === "full") {
         container.innerHTML += `
@@ -119,8 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${s.src}" class="d-block w-100" alt="">
           </div>`;
       } else {
-        if (isMobile) {
-          // mobile: each half is its own slide
+        if (mobileQuery.matches) {
           ["left", "right"].forEach((side, j) => {
             container.innerHTML += `
               <div class="carousel-item ${i === 0 && j === 0 ? "active" : ""}">
@@ -128,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>`;
           });
         } else {
-          // desktop: side-by-side split
           container.innerHTML += `
             <div class="carousel-item ${i === 0 ? "active" : ""}">
               <div class="banner-split">
@@ -140,14 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Build once
   buildCarousel();
 
-  // Rebuild on resize (debounced)
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(buildCarousel, 200);
-  });
+  // Rebuild only when breakpoint changes
+  mobileQuery.addEventListener("change", buildCarousel);
 });
 
 
