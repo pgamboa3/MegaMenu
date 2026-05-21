@@ -18,7 +18,8 @@
 body
 {
   font-family: 'Open Sans', sans-serif;
-  background: #f0f0f0 url(../img/background.jpg) no-repeat center center fixed;
+  /* background: #f0f0f0 url(../img/background.jpg) no-repeat center center fixed; */
+  background: #d3d3d3;
   background-size: cover;
 }
 
@@ -93,7 +94,7 @@ h4 { font-size: var(--h4-size); }
 
 /* Form inside mega menu */
 .mega-dropdown-menu form {
-  margin: 10px 20px;
+  margin: 10px 0px;
 }
 
 .mega-dropdown-menu .form-group {
@@ -126,6 +127,18 @@ h4 { font-size: var(--h4-size); }
   {
     white-space: nowrap;
   }
+
+  /* Force arrow cursor on the mega menu container */
+.mega-dropdown-menu {
+  cursor: default; /* arrow cursor */
+  z-index: 9999;
+}
+
+/* Keep pointer cursor only on actual links */
+.mega-dropdown-menu a {
+  cursor: pointer;
+}
+
 
 /* Hidden state */
 /* Base mega dropdown menu setup */
@@ -313,21 +326,35 @@ header .topbar
   background-color: #fff;
 }
 
-.banner_section {
-    width: 100%;
-    padding: 6rem 0;
-    transition: all 0.5s;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+
+
+.carousel-item {
+  height: 100vh;        /* every slide fills viewport */
 }
 
-.banner_section img {
-  max-width: 100%;  /* never wider than viewport */
-  height: auto;
-  display: block;
-  margin: 0 auto;
+.carousel-item img {
+  height: 100vh;        /* single image slides */
+  object-fit: cover;
 }
+
+.banner-split {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+}
+
+.banner-half {
+  flex: 1;
+}
+
+.banner-half img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+

@@ -96,3 +96,58 @@ function adjustNav() {
 }
 
 ['load','resize'].forEach(e => addEventListener(e, adjustNav));
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = [
+    { type: "full", src: "img/banner-full.jpeg" },
+    { type: "split", left: "img/banner-left.jpeg", right: "img/banner-right.jpeg" },
+    { type: "full", src: "img/banner-another.jpeg" }
+  ];
+
+  const container = document.getElementById("bannerSlides");
+
+  function buildCarousel() {
+    const isMobile = window.innerWidth < 991;
+    container.innerHTML = "";
+
+    slides.forEach((s, i) => {
+      if (s.type === "full") {
+        container.innerHTML += `
+          <div class="carousel-item ${i === 0 ? "active" : ""}">
+            <img src="${s.src}" class="d-block w-100" alt="">
+          </div>`;
+      } else {
+        if (isMobile) {
+          // mobile: each half is its own slide
+          ["left", "right"].forEach((side, j) => {
+            container.innerHTML += `
+              <div class="carousel-item ${i === 0 && j === 0 ? "active" : ""}">
+                <img src="${s[side]}" class="d-block w-100" alt="">
+              </div>`;
+          });
+        } else {
+          // desktop: side-by-side split
+          container.innerHTML += `
+            <div class="carousel-item ${i === 0 ? "active" : ""}">
+              <div class="banner-split">
+                <div class="banner-half"><img src="${s.left}" alt=""></div>
+                <div class="banner-half"><img src="${s.right}" alt=""></div>
+              </div>
+            </div>`;
+        }
+      }
+    });
+  }
+  buildCarousel();
+
+  // Rebuild on resize (debounced)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildCarousel, 200);
+  });
+});
+
+
