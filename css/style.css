@@ -60,15 +60,22 @@ p,
 .topbar
 {
   font-size: 14px;
-  height: 30px;
-  background-color: var(--light-gray);
+  /* height: 30px; */
+  background-color: #fff;
   transition: all 0.5s;
 }
 
-.topbar i
+.topbar span
 {
   color: var(--accent-green);
-  background-color: transparent;
+  border-right: 1px solid #afafaf;
+  cursor: pointer;
+}
+
+.help-btn
+{
+  background-color: #b9e651;
+  font-weight: bold;
 }
 /* END TOP BAR */
 
