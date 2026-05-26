@@ -51,7 +51,8 @@ p,
 .navbar-brand
 {
   font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  line-height: 2;
 }
 
 /* START TOP BAR */
@@ -79,6 +80,11 @@ header .header-search
 .input-40
 {
   height: 40px;
+}
+
+#navExtras > a
+{
+  padding: 13px 15px;
 }
 /* END HEADER */
 
@@ -328,11 +334,6 @@ header .header-search
     margin-right: 15px !important;
   }
 
-  #site_header .header-wrapper > div
-  {
-    padding: 10px 0px;
-  }
-
   #megaCollapse
   {
     overflow: hidden; /* required for slide animation */
@@ -389,4 +390,3 @@ header .header-search
     border: 2px solid var(--accent-green);
   }
 }
-
