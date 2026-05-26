@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 :root {
   /* FONT COLORS */
@@ -37,112 +39,195 @@ h1, h4 { font-family: 'Lato', sans-serif; }
 /* Font sizes */
 h1 { font-size: var(--h1-size); }
 h4 { font-size: var(--h4-size); }
-
-.navbar a, p, .navbar-brand
+.navbar a,
+p,
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus
 {
   color: #fff;
 }
 
+.navbar-brand
+{
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+}
+
+/* START TOP BAR */
+.topbar
+{
+  font-size: 14px;
+  height: 30px;
+  background-color: var(--light-gray);
+  transition: all 0.5s;
+}
+
+.topbar i
+{
+  color: var(--accent-green);
+  background-color: transparent;
+}
+/* END TOP BAR */
+
+/* START HEADER */
+header .header-search
+{
+  height: 60px;
+  background-color: var(--accent-green);
+}
 .input-40
 {
   height: 40px;
 }
+/* END HEADER */
 
-.navbar a:hover, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show
+/* .navbar a:hover, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show
 {
   color: var(--primary-green);
   background-color: transparent;
-}
+} */
 
+/* --- START HEADER WRAPPER --- */
 #site_header .header-wrapper
 {
     background-color: var(--secondary-green);
-    min-height: 80px;
+    /* min-height: 10px; */
 }
 
-.mega-dropdown-menu > li:last-child {
-  border-right: 0px;
+.navbar-nav .nav-item
+{
+  line-height: 34px;
 }
 
-.mega-dropdown-menu > li > ul > li {
-  list-style: none;
-  line-height: 35px;
+#navbarNav > ul > li > a
+{
+  white-space: nowrap;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.87rem;
 }
 
-.mega-dropdown-menu > li > ul > li > a {
+/* Highlight nav-item on hover */
+.nav-item > a:hover {
+  color: #000;              /* text turns white */
+  background-color: #fff;   /* optional: dark background for contrast */
+}
+
+  /* --- START MEGA MENU --- */
+  /* Force arrow cursor on the mega menu container */
+  .mega-dropdown-menu {
+    cursor: default; /* arrow cursor */
+    z-index: 9999;
+  }
+
+  /* Keep pointer cursor only on actual links */
+  .mega-dropdown-menu a {
+    cursor: pointer;
+  }
+
+  .mega-dropdown-menu > li:last-child
+  {
+    border-right: 0px;
+  }
+
+  .mega-dropdown-menu > li > ul > li
+  {
+    list-style: none;
+    line-height: 35px;
+  }
+
+  .mega-dropdown-menu > li > ul > li > a
+  {
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .mega-dropdown-menu > li ul > li > a:hover,
+  .mega-dropdown-menu > li ul > li > a:focus
+  {
+    color: gray;
+  }
+
+  /* Headers inside mega menu */
+  .mega-dropdown-menu .dropdown-header
+  {
+    color: var(--accent-green);
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Form inside mega menu */
+  .mega-dropdown-menu form
+  {
+    margin: 10px 0px;
+  }
+  /* --- END MEGA MENU --- */
+/* --- END HEADER WRAPPER --- */
+
+/* --- START CAROUSEL --- */
+.carousel-item {
+  height: 100vh;        /* every slide fills viewport */
+}
+
+.carousel-item img {
+  height: 100vh;        /* single image slides */
+  object-fit: cover;
+}
+
+.banner-split {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+}
+
+.banner-half {
+  flex: 1;
+}
+
+.banner-half img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
   display: block;
-  /* padding: 6px 0px; */
-  font-weight: normal;
-  /* line-height: 1.5; */
-  color: #666;
-  text-decoration: none;
-  font-size: 13px;
 }
 
-.mega-dropdown-menu > li ul > li > a:hover,
-.mega-dropdown-menu > li ul > li > a:focus {
-  color: gray;
+.carousel-item {
+  position: relative;
 }
 
-/* Headers inside mega menu */
-.mega-dropdown-menu .dropdown-header {
-  color: var(--primary-green);
-  font-size: 18px;
-  font-weight: bold;
-
+.carousel-item .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.2); /* adjust darkness */
+  pointer-events: none; /* let clicks pass through */
 }
 
-/* Form inside mega menu */
-.mega-dropdown-menu form {
-  margin: 10px 0px;
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.2);
+  pointer-events: none;
 }
+/* --- END CAROUSEL --- */
 
-.mega-dropdown-menu .form-group {
-  margin-bottom: 10px;
-}
-
-/* Carousel images inside mega menu */
-.mega-dropdown-menu .carousel-item img {
-  border-radius: 4px;
-}
-
+/* --- START NAVBAR TOGGLER --- */
 .navbar-toggler {
     color: #fff;
     font-size: 1.8rem;
     border: none;
     cursor: pointer;
 }
-.navbar-toggler:hover
-{
-  color: #cacaca;
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
 }
-
-.topbar i
-  {
-    color: var(--primary-green);
-    background-color: transparent;
-  }
-
-  #navbarNav > ul > li > a
-  {
-    white-space: nowrap;
-  }
-
-  /* Force arrow cursor on the mega menu container */
-.mega-dropdown-menu {
-  cursor: default; /* arrow cursor */
-  z-index: 9999;
-}
-
-/* Keep pointer cursor only on actual links */
-.mega-dropdown-menu a {
-  cursor: pointer;
-}
-
-
-/* Hidden state */
-/* Base mega dropdown menu setup */
-
+/* --- END NAVBAR TOGGLER --- */
 
 /* Show on hover (desktop only) */
 @media (min-width: 992px) 
@@ -209,8 +294,8 @@ h4 { font-size: var(--h4-size); }
   /* Keep COLLECTION link highlighted while submenu is active */
   .nav-item.dropdown.mega-dropdown:hover > .nav-link.dropdown-toggle,
   .nav-item.dropdown.mega-dropdown:focus-within > .nav-link.dropdown-toggle {
-    color: var(--primary-green);
-    background-color: transparent;
+    color: black;
+    background-color: white;
   }
 
   .mega-dropdown-menu > li
@@ -224,9 +309,28 @@ h4 { font-size: var(--h4-size); }
 
 @media (max-width: 991px)
 {
+  .navbar .navbar-brand
+  {
+    color: var(--accent-green);
+  }
+  #navExtras a
+  {
+    color: var(--accent-green) !important;
+  }
+  .header-wrapper
+  {
+    background-color: #fff !important;
+  }
+
+  .navbar-toggler
+  {
+    color: var(--accent-green);
+    margin-right: 15px !important;
+  }
+
   #site_header .header-wrapper > div
   {
-    padding: 20px 0px;
+    padding: 10px 0px;
   }
 
   #megaCollapse
@@ -241,27 +345,27 @@ h4 { font-size: var(--h4-size); }
   #collectionLink:hover,
   .navbar .nav-link.nav-active
   {
-    color: var(--primary-green);
-    background-color: var(--dark-green);
+    color: #fff;
+    background-color: var(--accent-green);
   }
 
   /* Keep COLLECTION highlighted while submenu is expanded */
   #megaCollapse.show ~ .nav-link.dropdown-toggle,
   .nav-item.dropdown.mega-dropdown:focus-within > .nav-link.dropdown-toggle
   {
-    color: var(--primary-green);
-    background-color: var(--dark-green);
+    color: #fff;
+    background-color: var(--accent-green);
   }
 
   .navbar .nav-link.submenu-open, .navbar .nav-link.collapsed, .navbar .nav-link, .topbar i
   {
-    color: var(--primary-green);
-    background-color: var(--accent-green);
+    color: var(--accent-green);
+    background-color: var(--light-gray);
   }
 
   .navbar-nav .nav-item
   {
-    border-bottom: 5px solid var(--secondary-green);
+    border-bottom: 5px solid #fff;
   }
 
   .navbar-nav .nav-item.dropdown.mega-dropdown
@@ -282,79 +386,7 @@ h4 { font-size: var(--h4-size); }
   .mega-dropdown-menu
   {
     padding: 1.5rem 1rem;
+    border: 2px solid var(--accent-green);
   }
 }
-
-.navbar-nav .nav-item
-{
-  line-height: 64px;
-}
-
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Add vertical separators between columns */
-.navbar .dropdown-menu.mega-dropdown-menu > li {
-  border-right: 1px solid var(--light-gray); /* light gray separator */
-  padding: 0 10px; /* spacing inside each column */
-}
-
-/* Remove the last column’s border */
-.navbar .dropdown-menu.mega-dropdown-menu > li:last-child {
-  border-right: none;
-}
-
-
-header .topbar, header .header-search
-{
-  padding: 0;
-  font-size: 14px;
-  transition: all 0.5s;
-}
-
-header .header-search
-{
-  height: 60px;
-  background-color: var(--accent-green);
-}
-
-header .topbar
-{
-  height: 30px;
-  background-color: #fff;
-}
-
-
-
-
-.carousel-item {
-  height: 100vh;        /* every slide fills viewport */
-}
-
-.carousel-item img {
-  height: 100vh;        /* single image slides */
-  object-fit: cover;
-}
-
-.banner-split {
-  display: flex;
-  width: 100%;
-  height: 100vh; /* full viewport height */
-}
-
-.banner-half {
-  flex: 1;
-}
-
-.banner-half img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-}
-
-
-
 

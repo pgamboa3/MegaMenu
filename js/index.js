@@ -73,6 +73,7 @@ let wrapper; // keep reference globally
 
 function adjustNav() {
   const toggler = document.querySelector('.navbar-toggler');
+  const brand = document.querySelector('.navbar-brand');
   const extras = document.getElementById('navExtras');
   const mobile = document.querySelector('.header-wrapper .navbar .container-fluid');
   const desktop = document.querySelector('.header-search .container');
@@ -84,12 +85,13 @@ function adjustNav() {
       wrapper.style.flexGrow = 1;
       mobile.insertBefore(wrapper, mobile.querySelector('.navbar-collapse'));
     }
-    wrapper.append(toggler, extras);
+    wrapper.append(toggler, brand, extras);
   } else {
     if (wrapper) {
       wrapper.remove();
       wrapper = null; // clear reference
     }
+    desktop.appendChild(brand);
     desktop.appendChild(extras);
     mobile.insertBefore(toggler, mobile.querySelector('.navbar-collapse'));
   }
